@@ -16,6 +16,7 @@ public class InimigoSk : MonoBehaviour
     public int posMin;
     public int posMax;
     public int contador2 = 0;
+    
 
     // Start is called before the first frame update
     void Start()

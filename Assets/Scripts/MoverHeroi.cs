@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoverHeroi : MonoBehaviour
 {
+    //Listas de Andar
     public List<Sprite> imgAndarCima;
     public List<Sprite> imgAndarBaixo;
     public List<Sprite> imgAndarEsquerda;
@@ -13,6 +14,19 @@ public class MoverHeroi : MonoBehaviour
     public int contador = 0;
     public string texto = "";
 
+    //Listas de Ataque
+    public List<Sprite> imgAtkEsquerda;
+    public List<Sprite> imgAtkDireita;
+    public int indiceAtk = 0;
+    public int contadorAtk = 0;
+    public bool atacou = false;
+
+
+   
+    public List<GameObject> Inimigos;
+    
+    
+
     void Start()
     {
         MostrarImagem = GetComponent<SpriteRenderer>();
@@ -21,9 +35,85 @@ public class MoverHeroi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movimento();
+        if(atacou == true)
+        {
+            Ataque();
+        }
+        else
+        {
+            Movimento();
+            if (Input.GetMouseButtonDown(0))
+            {
+                atacou = true;
+            }
+        }
+        
+        
+        
     }
 
+    void Ataque()
+    {
+
+
+        if(atacou == true)
+        {
+            AnimacaoAtaque();
+        }
+    }
+
+
+    void AnimacaoAtaque()
+    {
+        if (texto == "Esquerda")
+        {
+
+
+            MostrarImagem.sprite = imgAtkEsquerda[indiceAtk];
+            contadorAtk++;
+            if (contadorAtk > 30)
+            {
+                indiceAtk++;
+                contadorAtk = 0;
+            }
+            if (indiceAtk >= imgAtkEsquerda.Count)
+            {
+                //Meu ataque terminou
+                atacou = false;
+                contadorAtk = 0;
+                indiceAtk = 0;
+                Animacao();
+
+            }
+        }
+        else if (texto == "Direita")
+        {
+
+
+            MostrarImagem.sprite = imgAtkDireita[indiceAtk];
+            contadorAtk++;
+            if (contadorAtk > 30)
+            {
+                indiceAtk++;
+                contadorAtk = 0;
+            }
+            if (indiceAtk >= imgAtkDireita.Count)
+            {
+                //Meu ataque terminou
+                atacou = false;
+                contadorAtk = 0;
+                indiceAtk = 0;
+                Animacao();
+
+            }
+        }
+        else
+        {
+            atacou = false;
+        }
+       
+
+    }
 
     void Movimento()
     {
