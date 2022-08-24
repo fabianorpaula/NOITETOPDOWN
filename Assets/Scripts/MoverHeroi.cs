@@ -17,13 +17,16 @@ public class MoverHeroi : MonoBehaviour
     //Listas de Ataque
     public List<Sprite> imgAtkEsquerda;
     public List<Sprite> imgAtkDireita;
+    public List<Sprite> imgAtkCima;
+    public List<Sprite> imgAtkBaixo;
     public int indiceAtk = 0;
     public int contadorAtk = 0;
     public bool atacou = false;
 
 
-   
+
     public List<GameObject> Inimigos;
+    public int indiceInimigos = 0;
     
     
 
@@ -45,6 +48,7 @@ public class MoverHeroi : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 atacou = true;
+                indiceInimigos = 0;
             }
         }
         
@@ -59,9 +63,30 @@ public class MoverHeroi : MonoBehaviour
         if(atacou == true)
         {
             AnimacaoAtaque();
+            CalculoInimigo();
         }
     }
 
+    void CalculoInimigo()
+    {
+        if (indiceInimigos < Inimigos.Count)
+        {
+            if (Inimigos[indiceInimigos] != null)
+            {
+                Vector3 minhaPos = transform.position;
+                Vector3 inimigoPos = Inimigos[indiceInimigos].transform.position;
+                float distancia = Vector3.Distance(minhaPos, inimigoPos);
+                if (distancia < 0.3f)
+                {
+                    Destroy(Inimigos[indiceInimigos]);
+                    //Inimigos[indiceInimigos].GetComponent<SpriteRenderer>().enabled = false;
+                }
+                
+            }
+            indiceInimigos++;
+        }
+
+    }
 
     void AnimacaoAtaque()
     {
@@ -98,6 +123,48 @@ public class MoverHeroi : MonoBehaviour
                 contadorAtk = 0;
             }
             if (indiceAtk >= imgAtkDireita.Count)
+            {
+                //Meu ataque terminou
+                atacou = false;
+                contadorAtk = 0;
+                indiceAtk = 0;
+                Animacao();
+
+            }
+        }
+        else if (texto == "Cima")
+        {
+
+
+            MostrarImagem.sprite = imgAtkCima[indiceAtk];
+            contadorAtk++;
+            if (contadorAtk > 30)
+            {
+                indiceAtk++;
+                contadorAtk = 0;
+            }
+            if (indiceAtk >= imgAtkCima.Count)
+            {
+                //Meu ataque terminou
+                atacou = false;
+                contadorAtk = 0;
+                indiceAtk = 0;
+                Animacao();
+
+            }
+        }
+        else if (texto == "Baixo")
+        {
+
+
+            MostrarImagem.sprite = imgAtkBaixo[indiceAtk];
+            contadorAtk++;
+            if (contadorAtk > 30)
+            {
+                indiceAtk++;
+                contadorAtk = 0;
+            }
+            if (indiceAtk >= imgAtkBaixo.Count)
             {
                 //Meu ataque terminou
                 atacou = false;
@@ -149,7 +216,7 @@ public class MoverHeroi : MonoBehaviour
         if(contador > 50)
         {
             indice = indice + 1;
-            if(indice > 4)
+            if(indice > 3)
             {
                 indice = 0;
             }
