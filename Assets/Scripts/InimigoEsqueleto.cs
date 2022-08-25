@@ -23,6 +23,7 @@ public class InimigoEsqueleto : MonoBehaviour
     public int movimentoAtaque;
     public int indiceAtk;
 
+    public GameObject TELADERROTA;
 
     void Start()
     {
@@ -70,6 +71,7 @@ public class InimigoEsqueleto : MonoBehaviour
                         if (distancia <= 0.6f)
                         {
                             Destroy(Heroi);
+                        TELADERROTA.SetActive(true);
                         }
                         indiceAtk = 0;
                     ataque = false;
@@ -93,6 +95,7 @@ public class InimigoEsqueleto : MonoBehaviour
                     if (distancia <= 0.6f)
                     {
                         Destroy(Heroi);
+                        TELADERROTA.SetActive(true);
                     }
                     indiceAtk = 0;
                     ataque = false;
@@ -114,6 +117,7 @@ public class InimigoEsqueleto : MonoBehaviour
                     if (distancia <= 0.6f)
                     {
                         Destroy(Heroi);
+                        TELADERROTA.SetActive(true);
                     }
                     indiceAtk = 0;
                     ataque = false;
@@ -135,6 +139,7 @@ public class InimigoEsqueleto : MonoBehaviour
                     if (distancia <= 0.6f)
                     {
                         Destroy(Heroi);
+                        TELADERROTA.SetActive(true);
                     }
                     indiceAtk = 0;
                     ataque = false;

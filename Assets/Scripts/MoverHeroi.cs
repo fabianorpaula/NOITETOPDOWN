@@ -27,6 +27,8 @@ public class MoverHeroi : MonoBehaviour
 
     public List<GameObject> Inimigos;
     public int indiceInimigos = 0;
+    public int mortos = 0;
+    public GameObject TELAVITORIA;
     
     
 
@@ -52,7 +54,10 @@ public class MoverHeroi : MonoBehaviour
             }
         }
         
-        
+        if(mortos >= Inimigos.Count)
+        {
+            TELAVITORIA.SetActive(true);
+        }
         
     }
 
@@ -79,6 +84,7 @@ public class MoverHeroi : MonoBehaviour
                 if (distancia < 0.6f)
                 {
                     Destroy(Inimigos[indiceInimigos]);
+                    mortos++;
                     //Inimigos[indiceInimigos].GetComponent<SpriteRenderer>().enabled = false;
                 }
                 
