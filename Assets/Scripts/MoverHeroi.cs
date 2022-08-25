@@ -76,7 +76,7 @@ public class MoverHeroi : MonoBehaviour
                 Vector3 minhaPos = transform.position;
                 Vector3 inimigoPos = Inimigos[indiceInimigos].transform.position;
                 float distancia = Vector3.Distance(minhaPos, inimigoPos);
-                if (distancia < 0.3f)
+                if (distancia < 0.6f)
                 {
                     Destroy(Inimigos[indiceInimigos]);
                     //Inimigos[indiceInimigos].GetComponent<SpriteRenderer>().enabled = false;

@@ -646,10 +646,9 @@ Transform:
   m_LocalPosition: {x: 0.84465957, y: 0.30072117, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 877698522}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &347839334
 MonoBehaviour:
@@ -699,8 +698,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a6777441bef02384ab5be610d34e095b, type: 3}
   - {fileID: 21300000, guid: 185ec3ce28b29cb4f8e434878cf09476, type: 3}
   - {fileID: 21300000, guid: 96a2bcf4fdfd1fd44b1bf2c46fba9faf, type: 3}
-  imgAtkCima: []
-  imgAtkBaixo: []
+  imgAtkCima:
+  - {fileID: 21300000, guid: 98779a85bc9b8af4980fd703f7e291d5, type: 3}
+  - {fileID: 21300000, guid: cd1f69bdb8bfcd5478513eafcb78d22f, type: 3}
+  - {fileID: 21300000, guid: 27fc81ae3974188428c3c13ac8bf174e, type: 3}
+  imgAtkBaixo:
+  - {fileID: 21300000, guid: a1b98e0328f84c04c86f3a7b3a1ba73f, type: 3}
+  - {fileID: 21300000, guid: 4e919532ad48eb64ca0cffdf06f55853, type: 3}
+  - {fileID: 21300000, guid: 3e21a6f602e38f04abc40b396bd3cbe2, type: 3}
   indiceAtk: 0
   contadorAtk: 0
   atacou: 0
@@ -713,6 +718,7 @@ MonoBehaviour:
   - {fileID: 307500142}
   - {fileID: 927262274}
   - {fileID: 1224738843}
+  - {fileID: 955300163}
   indiceInimigos: 0
 --- !u!50 &347839335
 Rigidbody2D:
@@ -977,7 +983,7 @@ Transform:
   - {fileID: 1224738848}
   - {fileID: 1753499880}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &602041139
 GameObject:
@@ -1224,11 +1230,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877698519}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.84465957, y: 0.30072117, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 347839333}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &927262274
@@ -1439,7 +1445,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f933061d549a20948905dbe2b9f1426f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Jogadores: []
+  Heroi: {fileID: 0}
+  imgCima: {fileID: 21300000, guid: 9209fd2c7086d2843a2fff162df50dfa, type: 3}
+  imgDireita: {fileID: 21300000, guid: bba32775bf2996544b950ff9da433af6, type: 3}
+  imgEsquerda: {fileID: 21300000, guid: 051f9ba6ae5172b43aff54df4425309a, type: 3}
+  imgBaixo: {fileID: 21300000, guid: fd685f74190a1c2469c1130720e338c3, type: 3}
+  diferencaX: 0
+  diferencaY: 0
+  ataque: 0
+  imgAtkCima:
+  - {fileID: 21300000, guid: acc86c98ab0d6aa4da81f61f29d3a95d, type: 3}
+  - {fileID: 21300000, guid: 19de789a9c5477d479e85ae84d5a3074, type: 3}
+  - {fileID: 21300000, guid: c3c8bd7daa46fae4bb3360fe7b689546, type: 3}
+  imgAtkDireita:
+  - {fileID: 21300000, guid: 758f947d94ee8b040882c4401b9eef18, type: 3}
+  - {fileID: 21300000, guid: c46b779b63b4e5c48841bb5dd15dc5c3, type: 3}
+  - {fileID: 21300000, guid: bd6638bbc5e77a64599134c58dbdfa54, type: 3}
+  imgAtkEsquerda:
+  - {fileID: 21300000, guid: a24948022ef0f594288bb501e0bdb5a7, type: 3}
+  - {fileID: 21300000, guid: 040334f2fe24e7747b6cf3e0e3e79756, type: 3}
+  - {fileID: 21300000, guid: 1095610794341214a9ab14ca4f28118e, type: 3}
+  imgAtkBaixo:
+  - {fileID: 21300000, guid: 87e1343ef0da4c7438bebf17754ee720, type: 3}
+  - {fileID: 21300000, guid: d867e1ec80368a6479c8a156620c123e, type: 3}
+  - {fileID: 21300000, guid: 73438458290a9d34a9209230a55d89fc, type: 3}
+  direcao: 
+  contadorParaAtacar: 0
+  movimentoAtaque: 0
+  indiceAtk: 0
 --- !u!212 &955300165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1480,7 +1513,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ac06f87dc2acb8d4ebb7bda0912bdf50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1500,12 +1533,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955300163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.94, y: -1.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &980777357
 GameObject:
@@ -1548,7 +1581,7 @@ Transform:
   - {fileID: 1607231524}
   - {fileID: 1016048119}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1016048117
 GameObject:
